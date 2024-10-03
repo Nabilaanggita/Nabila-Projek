@@ -1,3 +1,7 @@
 
 file ipnyb
 https://colab.research.google.com/drive/1Jn-9MO4WuO7qCWKG1eujd6dxXIFMXOBo#scrollTo=n-R5a6GKS458
+
+URL Streamlit
+
+https://nabila-projek-9ufbudnztjifj4qqhuoh9p.streamlit.app/
