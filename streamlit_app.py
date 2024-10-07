@@ -12,25 +12,24 @@ nav_choice = st.sidebar.selectbox("Pilih Analisis", nav_options)
 
 #membuat halaman beranda
 if nav_choice == "beranda":
-
-                st.title("Analisis Data Pengguna Sepeda")
-                st.write("Selamat datang di analisis data pengguna sepeda!")
-                st.write("Pilih jenis analisis data yang anda inginkan .")
-                st.header("Pencarian Data jumlah pelanggan")
-                st.header("Filter Data yang diinginkan")
-                bulan_filter = st.selectbox("Pilih Bulan", df["mnth"].unique())
-                tahun_filter = st.selectbox("Pilih Tahun", df["yr"].unique())
-                cuaca_filter = st.selectbox("Pilih Cuaca", df["weathersit"].unique())
-                df_filtered = df[(df["mnth"] == bulan_filter) & (df["yr"] == tahun_filter) & (df["weathersit"] == cuaca_filter)]
-                st.write("jumlahData yang sesuai:")
-                sum_cnt = df_filtered["cnt"].sum()
-                sum_casual = df_filtered["casual"].sum()
-                sum_registered = df_filtered["registered"].sum()
-                st.write("Data yang difilter:")
-                st.write(df_filtered[["cnt", "casual", "registered"]])
-                st.write("Total Penyewa:", sum_cnt)
-                st.write("Total Casual:", sum_casual)
-                st.write("Total Registered:", sum_registered)
+              st.title("Analisis Data Pengguna Sepeda")
+              st.write("Selamat datang di analisis data pengguna sepeda!")
+              st.write("Pilih jenis analisis data yang anda inginkan .")
+              st.header("Pencarian Data jumlah pelanggan")
+              st.header("Filter Data yang diinginkan")
+              bulan_filter = st.selectbox("Pilih Bulan", df["mnth"].unique())
+              tahun_filter = st.selectbox("Pilih Tahun", df["yr"].unique())
+              cuaca_filter = st.selectbox("Pilih Cuaca", df["weathersit"].unique())
+              df_filtered = df[(df["mnth"] == bulan_filter) & (df["yr"] == tahun_filter) & (df["weathersit"] == cuaca_filter)]
+              st.write("jumlahData yang sesuai:")
+              sum_cnt = df_filtered["cnt"].sum()
+              sum_casual = df_filtered["casual"].sum()
+              sum_registered = df_filtered["registered"].sum()
+              st.write("Data yang difilter:")
+              st.write(df_filtered[["cnt", "casual", "registered"]])
+              st.write("Total Penyewa:", sum_cnt)
+              st.write("Total Casual:", sum_casual)
+              st.write("Total Registered:", sum_registered)
 
 
         
