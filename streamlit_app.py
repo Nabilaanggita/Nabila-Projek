@@ -11,26 +11,26 @@ nav_options = ["Beranda","Bulan", "Weathersit", "Tambahan"]
 nav_choice = st.sidebar.selectbox("Pilih Analisis", nav_options)
 
 #membuat halaman beranda
-if nav_choice == "beranda":
-              st.title("Analisis Data Pengguna Sepeda")
-              st.write("Selamat datang di analisis data pengguna sepeda!")
-              st.write("Pilih jenis analisis data yang anda inginkan .")
-              st.header("Pencarian Data jumlah pelanggan")
-              st.header("Filter Data yang diinginkan")
-              bulan_filter = st.selectbox("Pilih Bulan", df["mnth"].unique())
-              tahun_filter = st.selectbox("Pilih Tahun", df["yr"].unique())
-              cuaca_filter = st.selectbox("Pilih Cuaca", df["weathersit"].unique())
-              df_filtered = df[(df["mnth"] == bulan_filter) & (df["yr"] == tahun_filter) & (df["weathersit"] == cuaca_filter)]
-              st.write("jumlahData yang sesuai:")
-              sum_cnt = df_filtered["cnt"].sum()
-              sum_casual = df_filtered["casual"].sum()
-              sum_registered = df_filtered["registered"].sum()
-              st.write("Data yang difilter:")
-              st.write(df_filtered[["cnt", "casual", "registered"]])
-              st.write("Total Penyewa:", sum_cnt)
-              st.write("Total Casual:", sum_casual)
-              st.write("Total Registered:", sum_registered)
-
+if nav_choice == "Beranda":
+            st.title("Analisis Data Pengguna Sepeda")
+            st.write("Selamat datang di analisis data pengguna sepeda!")
+            st.write("Pilih jenis analisis data yang anda inginkan .")
+            st.image("naik_sepeda.jpg", use_column_width=True)  
+            st.header("Pencarian Data jumlah pelanggan")                
+            st.header("Filter Data yang diinginkan")
+            bulan_filter = st.selectbox("Pilih Bulan", df["mnth"].unique())
+            tahun_filter = st.selectbox("Pilih Tahun", df["yr"].unique())
+            cuaca_filter = st.selectbox("Pilih Cuaca", df["weathersit"].unique())
+            df_filtered = df[(df["mnth"] == bulan_filter) & (df["yr"] == tahun_filter) & (df["weathersit"] == cuaca_filter)]               
+            st.write("jumlahData yang sesuai:")
+            sum_cnt = df_filtered["cnt"].sum()
+            sum_casual = df_filtered["casual"].sum()
+            sum_registered = df_filtered["registered"].sum()
+            st.write("Data yang difilter:")
+            st.write(df_filtered[["cnt", "casual", "registered"]])
+            st.write("Total Penyewa:", sum_cnt)
+            st.write("Total Casual:", sum_casual)
+            st.write("Total Registered:", sum_registered)
 
         
 
@@ -42,7 +42,8 @@ elif nav_choice == "Bulan":
             df['yr'] = df['dteday'].dt.year
 
             # Membuat dashboard
-            st.title("Analisis Data Pengguna Sepeda")
+            st.title("Analisis Data Pengguna Sepeda tiap bulannya")
+            st.write("Bagaimana performa pengguna jasa sewa sepeda tiap bulannya?")
             st.write (df)
 
             # Pertanyaan 1: Bagaimana performa pengguna jasa sewa sepeda tiap bulannya?
@@ -93,8 +94,11 @@ elif nav_choice == "Bulan":
             # Data urut terkecil penyewa berdasarkan bulan
             st.write("Data Urut Terkecil Penyewa Berdasarkan Bulan")
             st.write(df.groupby(by="mnth").nunique().sort_values(by='cnt', ascending=True))
+            st.write("peforma pengguna naik turun namun cenderung meningkat . grafik tiap bulannya mengalami naik turun.terjadi penurunan yang sangat drastis pda bulan april. setelah saya analisis lebih lanjut dikarenakan faktor cuaca. kemudian pda saat bulan berikutnya meningkat terjadi penurunan namun tidak sedrastis pada bulan pertama.")
+
 
 elif nav_choice == "Weathersit":
+            st.write("Bagaimana cuaca mempengaruhi kondisi perjalanan dan pengalaman pengguna saat bersepeda?")
             # Pertanyaan 2: Bagaimana cuaca mempengaruhi kondisi perjalanan dan pengalaman pengguna saat bersepeda?
             plt.style.use('dark_background')
             st.header("Cuaca dan Pengguna Sepeda")
@@ -113,6 +117,7 @@ elif nav_choice == "Weathersit":
             # Data urut terkecil penyewa berdasarkan weathersit
             st.write("Data Urut Terkecil Penyewa Berdasarkan Cuaca")
             st.write(df.groupby(by="weathersit").nunique().sort_values(by='cnt', ascending=True))
+            st.write("cuaca sangat berpengaaruh terhadap peminat pengguna sepeda Ketika cuaca sangat buruk, hanya ada sedikit peminat pengguna sepeda. Ini mungkin karena mereka tidak ingin mengambil risiko terjadi sesuatu yang buruk. ini hal wajar bahwa penurunan permintaan selama cuaca buruk dan cuaca adalah faktor eksternal yang mungkin kita tidak bisa atur. Menggunakan sepeda saat cuaca buruk dapat meningkatkan risiko kecelakaan atau kerusakan pada sepeda.")
 
 elif nav_choice == "Tambahan":
             st.header("Analisis Data")
