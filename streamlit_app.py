@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load data
-df = pd.read_csv("/workspaces/Nabila-Projek/data_siap (1).csv")
+df = pd.read_csv("data_siap (1).csv")
 
 # membuat bar navigasi
-nav_options = ["beranda","Bulan", "Weathersit", "Tambahan"]
+nav_options = ["Beranda","Bulan", "Weathersit", "Tambahan"]
 nav_choice = st.sidebar.selectbox("Pilih Analisis", nav_options)
 
 #membuat halaman beranda
@@ -15,7 +15,7 @@ if nav_choice == "beranda":
 
                 st.title("Analisis Data Pengguna Sepeda")
                 st.write("Selamat datang di analisis data pengguna sepeda!")
-                st.write("Pilih jenis data analisis yang anda inginkan .")
+                st.write("Pilih jenis analisis data yang anda inginkan .")
                 st.image("naik_sepeda.jpg", use_column_width=True)  
                 st.header("Pencarian Data jumlah pelanggan")
                 st.header("Filter Data yang diinginkan")
